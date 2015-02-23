@@ -50,14 +50,15 @@ module Rugments
 
         rule %r{[(){};:,\/\\\]\[]}, Punctuation
 
-        rule /~=|==|<<|>>|[-~+\/*%=<>&^|.]/, Operator
+        rule /~=|==|<<|>>|[-~+\/*%=<>&^|.@]/, Operator
 
         rule /(\d+\.\d*|\d*\.\d+)(e[+-]?[0-9]+)?/i, Num::Float
         rule /\d+e[+-]?[0-9]+/i, Num::Float
         rule /\d+L/, Num::Integer::Long
         rule /\d+/, Num::Integer
 
-        rule /'/, Str::Single, :string
+        rule /'(?=(.*'))/, Str::Single, :string # should be: rule /(?<![\]\)\w\.])'/i, Str::Single, :string
+        rule /'/, Operator
       end
 
       state :string do
