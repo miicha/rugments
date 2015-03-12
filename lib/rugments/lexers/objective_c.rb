@@ -7,7 +7,7 @@ module Rugments
       title 'Objective-C'
       desc 'an extension of C commonly used to write Apple software'
       aliases 'objc'
-      filenames '*.h'#,'*.m'
+      filenames '*.m', '*.h'
 
       mimetypes 'text/x-objective_c', 'application/x-objective_c'
 
