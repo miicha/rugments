@@ -1,0 +1,11 @@
+Merges:
+    ☐ https://github.com/jneen/rouge/pull/244
+
+Issues:
+    ☐ https://github.com/jneen/rouge/issues/150
+
+Doc:
+    ☐ Update Readme
+    ☐ Find out how to deal with a proper changelog (github releases, markdown file, blogpost, …)
+    ☐ Subclassed lexers MUST require the super class.
+    ☐ Minimum Ruby is 2.0

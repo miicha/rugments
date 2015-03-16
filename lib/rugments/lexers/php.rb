@@ -9,7 +9,9 @@ module Rugments
       desc 'The PHP scripting language (php.net)'
       tag 'php'
       aliases 'php', 'php3', 'php4', 'php5'
-      filenames '*.php', '*.php[345]'
+      filenames '*.php', '*.php[345]',
+                # Support Drupal file extensions, see #5.
+                '*.module', '*.inc', '*.profile', '*.install', '*.test'
       mimetypes 'text/x-php'
 
       default_options parent: 'html'
@@ -53,6 +55,12 @@ module Rugments
           php_user_filter interface implements public private protected
           abstract clone try catch throw this use namespace yield
         )
+      end
+
+      def self.analyze_text(text)
+        return 1 if text.shebang?('php')
+        return 0.3 if /<\?(?!xml)/ =~ text
+        0
       end
 
       state :root do

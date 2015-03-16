@@ -94,7 +94,7 @@ module Rugments
       end
 
       def base_style
-        styles[Token::Tokens::Text]
+        styles[Tokens::Text]
       end
 
       def name(n = nil)

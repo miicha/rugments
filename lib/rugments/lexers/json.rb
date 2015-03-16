@@ -13,6 +13,8 @@ module Rugments
         return 0.8 if text =~ /\A\s*{/m && text.lexes_cleanly?(self)
       end
 
+      string = /"(\\.|[^"])*"/
+
       state :root do
         mixin :whitespace
         # special case for empty objects
@@ -32,12 +34,12 @@ module Rugments
       end
 
       state :has_string do
-        rule /"(\\.|[^"])*"/, Str::Double
+        rule string, Str::Double
       end
 
       state :object_key do
         mixin :whitespace
-        mixin :has_string
+        rule string, Name::Tag
         rule /:/, Punctuation, :object_val
         rule /}/, Error, :pop!
       end
