@@ -14,14 +14,17 @@ module Rugments
 
       def self.keywords
         @keywords = Set.new %w(
-          break case catch classdef continue else elseif end for function
-          global if otherwise parfor persistent return spmd switch try while
+          begin while for in return break continue
+             macro quote let if elseif else try catch end
+             bitstype ccall do using module import export
+             importall baremodule immutable
         )
       end
 	  
 	  def self.keywords_type
         @keywords_type ||= Set.new %w(
-          int long float short double char unsigned signed void Float64
+          Bool Int Int8 Int16 Int32 Int64 Uint Uint8 Uint16 Uint32 Uint64
+          Float32 Float64 Complex64 Complex128 Any Nothing None
         )
       end
 
