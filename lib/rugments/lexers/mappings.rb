@@ -53,6 +53,12 @@ module Rugments
    :aliases=>["m"],
    :filenames=>["*.m"],
    :mimetypes=>["text/x-matlab", "application/x-matlab"]},
+ :julia=>
+  {:class_name=>"Rugments::Lexers::Julia",
+   :source_file=>"lexers/julia.rb",
+   :aliases=>["jl"],
+   :filenames=>["*.jl"],
+   :mimetypes=>["text/x-julia", "application/x-julia"]},
  :javascript=>
   {:class_name=>"Rugments::Lexers::Javascript",
    :source_file=>"lexers/javascript.rb",
